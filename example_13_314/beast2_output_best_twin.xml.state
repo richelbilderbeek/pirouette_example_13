@@ -1,0 +1,18 @@
+<itsabeastystatewerein version='2.0' sample='10000000'>
+<statenode id='Tree.t:twin'>(((0:0.19937255965077935,1:0.19937255965077935)7:0.4869320451093898,2:0.6863046047601692)6:0.2825753894859043,((3:0.06279666990364019,4:0.06279666990364019)9:0.09953309410094399,5:0.16232976400458418)8:0.8065502302414893)10:0.0</statenode>
+<statenode id='BDBirthRate.t:twin'>BDBirthRate.t:twin[1 1] (0.0,10000.0): 0.6272030749065084 </statenode>
+<statenode id='BDDeathRate.t:twin'>BDDeathRate.t:twin[1 1] (0.0,1.0): 0.58359424584688 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"BirthRateScaler.t:twin","p":0.75,"accept":6897,"reject":2260,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"DeathRateScaler.t:twin","p":0.75,"accept":6876,"reject":2340,"acceptFC":0,"rejectFC":0,"rejectIv":159,"rejectOp":159},
+{"id":"BirthDeathTreeScaler.t:twin","p":0.5,"accept":1693,"reject":7676,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"BirthDeathTreeRootScaler.t:twin","p":0.5,"accept":1516,"reject":7757,"acceptFC":0,"rejectFC":0,"rejectIv":1306,"rejectOp":1306},
+{"id":"BirthDeathUniformOperator.t:twin","p":"NaN","accept":23222,"reject":68983,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"BirthDeathSubtreeSlide.t:twin","p":1,"accept":4124,"reject":41862,"acceptFC":0,"rejectFC":0,"rejectIv":17338,"rejectOp":17338},
+{"id":"BirthDeathNarrow.t:twin","p":"NaN","accept":10152,"reject":36293,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"BirthDeathWide.t:twin","p":"NaN","accept":611,"reject":8616,"acceptFC":0,"rejectFC":0,"rejectIv":5091,"rejectOp":5091},
+{"id":"BirthDeathWilsonBalding.t:twin","p":"NaN","accept":403,"reject":8719,"acceptFC":0,"rejectFC":0,"rejectIv":4428,"rejectOp":4428}
+]}
+-->
