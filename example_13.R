@@ -155,89 +155,6 @@ pir_plot(errors) +
   ggsave(file.path(example_folder, "errors.png"))
 
 print("#######################################################################")
-print("Evidence")
-print("#######################################################################")
-
-pir_to_tables(
-  pir_params = pir_params,
-  folder = example_folder
-)
-
-print("#######################################################################")
-print("ESSes")
-print("#######################################################################")
-testit::assert(pir_params$experiments[[1]]$inference_model$mcmc$store_every != -1)
-esses_gen <- tracerer::calc_esses(
-  traces = tracerer::parse_beast_log(pir_params$experiments[[1]]$beast2_options$output_log_filename),
-  sample_interval = pir_params$experiments[[1]]$inference_model$mcmc$store_every
-)
-esses_best <- tracerer::calc_esses(
-  traces = tracerer::parse_beast_log(pir_params$experiments[[2]]$beast2_options$output_log_filename),
-  sample_interval = pir_params$experiments[[1]]$inference_model$mcmc$store_every
-)
-esses_twin_gen <- tracerer::calc_esses(
-  traces = tracerer::parse_beast_log(to_twin_filename(pir_params$experiments[[1]]$beast2_options$output_log_filename)),
-  sample_interval = pir_params$experiments[[1]]$inference_model$mcmc$store_every
-)
-esses_twin_best <- tracerer::calc_esses(
-  traces = tracerer::parse_beast_log(to_twin_filename(pir_params$experiments[[2]]$beast2_options$output_log_filename)),
-  sample_interval = pir_params$experiments[[1]]$inference_model$mcmc$store_every
-)
-
-df_esses_gen <- data.frame(parameter = colnames(esses_gen), ESS = as.character(esses_gen))
-df_esses_best <- data.frame(parameter = colnames(esses_best), ESS = as.character(esses_best))
-df_esses_twin_gen <- data.frame(parameter = colnames(esses_twin_gen), ESS = as.character(esses_twin_gen))
-df_esses_twin_best <- data.frame(parameter = colnames(esses_twin_best), ESS = as.character(esses_twin_best))
-
-sink(file.path(example_folder, "esses_gen.latex"))
-xtable::print.xtable(
-  xtable::xtable(
-    df_esses_gen,
-    caption = paste0("ESSes of example ", example_no, " for generative model"),
-    label = paste0("tab:esses_example_", example_no, "_gen"),
-    digits = 0
-  ),
-  include.rownames = FALSE
-)
-sink()
-
-sink(file.path(example_folder, "esses_best.latex"))
-xtable::print.xtable(
-  xtable::xtable(
-    df_esses_best,
-    caption = paste0("ESSes of example ", example_no, " for best candidate model"),
-    label = paste0("tab:esses_example_", example_no, "_best"),
-    digits = 0
-  ),
-  include.rownames = FALSE
-)
-sink()
-
-sink(file.path(example_folder, "esses_twin_gen.latex"))
-xtable::print.xtable(
-  xtable::xtable(
-    df_esses_twin_gen,
-    caption = paste0("ESSes of example ", example_no, " for generative model, twin tree"),
-    label = paste0("tab:esses_example_", example_no, "_twin_gen"),
-    digits = 0
-  ),
-  include.rownames = FALSE
-)
-sink()
-
-sink(file.path(example_folder, "esses_twin_best.latex"))
-xtable::print.xtable(
-  xtable::xtable(
-    df_esses_twin_best,
-    caption = paste0("ESSes of example ", example_no, " for best candidate model, twin tree"),
-    label = paste0("tab:esses_example_", example_no, "_twin__best"),
-    digits = 0
-  ),
-  include.rownames = FALSE
-)
-sink()
-
-print("#######################################################################")
 print("Appendix")
 print("#######################################################################")
 pir_to_pics(
@@ -246,3 +163,7 @@ pir_to_pics(
   folder = example_folder
 )
 
+pir_to_tables(
+  pir_params = pir_params,
+  folder = example_folder
+)
