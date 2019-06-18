@@ -158,63 +158,10 @@ print("#######################################################################")
 print("Evidence")
 print("#######################################################################")
 
-# Evidence, true
-df_evidences <- utils::read.csv(pir_params$evidence_filename)[, c(-1, -6)]
-df_evidences$site_model_name <- plyr::revalue(df_evidences$site_model_name, c("JC69" = "JC", "TN93" = "TN"))
-df_evidences$clock_model_name <- plyr::revalue(
-  df_evidences$clock_model_name,
-  c("strict" = "Strict", "relaxed_log_normal" = "RLN")
+pir_to_tables(
+  pir_params = pir_params,
+  folder = example_folder
 )
-df_evidences$tree_prior_name <- plyr::revalue(
-  df_evidences$tree_prior_name,
-  c(
-    "yule" = "Yule",
-    "birth_death" = "BD",
-    "coalescent_bayesian_skyline" = "CBS",
-    "coalescent_constant_population" = "CCP",
-    "coalescent_exp_population" = "CEP"
-  )
-)
-names(df_evidences) <- c("Site model", "Clock model", "Tree prior", "log(evidence)", "Weight")
-
-sink(file.path(example_folder, "evidence_true.latex"))
-xtable::print.xtable(
-  xtable::xtable(
-    df_evidences,
-    caption = "Evidences of example ", example_no, label = "tab:evidences_example_5", digits = 3
-  ),
-  include.rownames = FALSE
-)
-sink()
-
-# Evidence, twin
-df_evidences <- utils::read.csv(pir_params$twinning_params$twin_evidence_filename)[, c(-1, -6)]
-df_evidences$site_model_name <- plyr::revalue(df_evidences$site_model_name, c("JC69" = "JC", "TN93" = "TN"))
-df_evidences$clock_model_name <- plyr::revalue(
-  df_evidences$clock_model_name,
-  c("strict" = "Strict", "relaxed_log_normal" = "RLN")
-)
-df_evidences$tree_prior_name <- plyr::revalue(
-  df_evidences$tree_prior_name,
-  c(
-    "yule" = "Yule",
-    "birth_death" = "BD",
-    "coalescent_bayesian_skyline" = "CBS",
-    "coalescent_constant_population" = "CCP",
-    "coalescent_exp_population" = "CEP"
-  )
-)
-names(df_evidences) <- c("Site model", "Clock model", "Tree prior", "log(evidence)", "Weight")
-
-sink(file.path(example_folder, "evidence_twin.latex"))
-xtable::print.xtable(
-  xtable::xtable(
-    df_evidences,
-    caption = "Evidences of example 5, twin tree", label = "tab:evidences_example_5_twin", digits = 3
-  ),
-  include.rownames = FALSE
-)
-sink()
 
 print("#######################################################################")
 print("ESSes")
@@ -298,3 +245,4 @@ pir_to_pics(
   pir_params = pir_params,
   folder = example_folder
 )
+
