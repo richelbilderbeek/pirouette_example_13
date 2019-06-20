@@ -84,8 +84,8 @@ check_experiments(experiments)
 if (beastier::is_on_ci()) {
   experiments <- experiments[1:3]
   for (i in seq_along(experiments)) {
-    experiments[[i]]$inference_model$mcmc <- create_mcmc(chain_length = 3000, store_every = 1000)
-    experiments[[i]]$est_evidence_mcmc <- create_mcmc_nested_sampling(
+    experiments[[i]]$inference_model$mcmc <- beautier::create_mcmc(chain_length = 3000, store_every = 1000)
+    experiments[[i]]$est_evidence_mcmc <- beautier::create_mcmc_nested_sampling(
       chain_length = 3000,
       store_every = 1000,
       epsilon = 100.0
@@ -122,7 +122,7 @@ pir_params$experiments[[1]]$beast2_options$output_trees_filenames <- file.path(e
 pir_params$experiments[[1]]$beast2_options$output_state_filename <- file.path(example_folder, "beast2_output_gen.xml.state")
 pir_params$experiments[[1]]$errors_filename <- file.path(example_folder, "error_gen.csv")
 pir_params$evidence_filename <- file.path(example_folder, "evidence_true.csv")
-if (!is_one_na(pir_params$twinning_params)) {
+if (!beautier::is_one_na(pir_params$twinning_params)) {
   pir_params$twinning_params$twin_tree_filename <- file.path(example_folder, "twin.tree")
   pir_params$twinning_params$twin_alignment_filename <- file.path(example_folder, "twin.fasta")
   pir_params$twinning_params$twin_evidence_filename <- file.path(example_folder, "evidence_twin.csv")
