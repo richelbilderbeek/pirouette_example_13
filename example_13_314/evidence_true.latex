@@ -1,5 +1,5 @@
 % latex table generated in R 3.6.0 by xtable 1.8-4 package
-% Thu Jun 13 14:43:23 2019
+% Fri Aug  2 13:22:34 2019
 \begin{table}[ht]
 \centering
 \begin{tabular}{lllrr}
@@ -29,13 +29,13 @@ GTR & RLN & BD & -8235.035 & 0.000 \\
   JC & RLN & BD & -8215.680 & 0.000 \\ 
   JC & RLN & CBS & -8217.964 & 0.000 \\ 
   JC & RLN & CCP & -8225.709 & 0.000 \\ 
-  JC & RLN & CEP & -8206.129 & 0.999 \\ 
+  JC & RLN & CEP & -8206.129 & 0.997 \\ 
   JC & RLN & Yule & -8218.450 & 0.000 \\ 
   JC & Strict & BD & -8215.596 & 0.000 \\ 
   JC & Strict & CBS & -8220.999 & 0.000 \\ 
   JC & Strict & CCP & -8219.782 & 0.000 \\ 
-  JC & Strict & CEP &  & 0.000 \\ 
-  TN & RLN & BD &  & 0.000 \\ 
+  JC & Strict & CEP & -8212.788 & 0.001 \\ 
+  TN & RLN & BD & -8225.680 & 0.000 \\ 
   TN & RLN & CBS & -8239.148 & 0.000 \\ 
   TN & RLN & CCP & -8223.041 & 0.000 \\ 
   TN & RLN & CEP & -8227.377 & 0.000 \\ 
@@ -47,6 +47,5 @@ GTR & RLN & BD & -8235.035 & 0.000 \\
   TN & Strict & Yule & -8232.665 & 0.000 \\ 
    \hline
 \end{tabular}
-\caption{Evidences of example 5} 
-\label{tab:evidences_example_5}
+\caption{Evidences for the true phylogeny} 
 \end{table}
