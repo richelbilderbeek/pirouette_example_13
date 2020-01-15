@@ -1,15 +1,11 @@
-# Code of example 13
-#
 # Works under Linux and MacOS only
-
-# Set the RNG seed
-rng_seed <- 314
 
 library(pirouette)
 suppressMessages(library(ggplot2))
 
 root_folder <- getwd()
 example_no <- 13
+rng_seed <- 314
 example_folder <- file.path(root_folder, paste0("example_", example_no, "_", rng_seed))
 dir.create(example_folder, showWarnings = FALSE, recursive = TRUE)
 setwd(example_folder)
